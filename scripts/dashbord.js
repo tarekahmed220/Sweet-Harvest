@@ -24,16 +24,17 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // orders handle =================================================================
-var ordersList = JSON.parse(localStorage.getItem("orders")) || [];
-for (var i = 0; i < ordersList.length; i++) {
+var orderList = JSON.parse(localStorage.getItem("checkout")) || [];
+console.log(orderList)
+for (var i = 0; i < orderList.length-1; i++) {
   var orderContainer = ``;
   orderContainer += `
     <tr>
-                  <td>${ordersList[i].orderId}</td>
-                  <td>${ordersList[i].productTitle}</td>
-                  <td>${ordersList[i].userEmain}</td>
-                  <td>$${ordersList[i].price}</td>
-                  <td>${ordersList[i].quantity}</td>
+                  <td>${orderList[i].id}</td>
+                  <td>${orderList[i].title}</td>
+                  <td>${orderList[i].userEmail.email}</td>
+                  <td>$${orderList[i].price}</td>
+                  <td>${orderList[i].stock_Quantity}</td>
                   <td class="action-buttons">
                     <button class="accept-btn" onclick="acceptOrder(this)" >
                       <i class="fas fa-check"></i>
@@ -47,6 +48,7 @@ for (var i = 0; i < ordersList.length; i++) {
 
   var tbody = (document.getElementById("tbody").innerHTML += orderContainer);
 }
+
 
 // todo : remove order form local storage
 function acceptOrder(ele) {
@@ -104,4 +106,23 @@ function deleteproduct(index) {
   products.splice(index, 1);
   localStorage.setItem("products", JSON.stringify(products));
   displayProducts();
+}
+
+
+// useres =================================================================
+const userList = JSON.parse(localStorage.getItem("users")) || [];
+console.log(userList)
+for (var i = 0; i <= userList.length; i++) {
+
+  var userContainer = ``;
+  userContainer += `
+    <tr>
+        <td>${userList[i].id}</td>
+        <td>${userList[i].username}</td>
+        <td>${userList[i].email}</td>
+      
+      </tr>
+  `;
+console.log(userContainer)
+  document.getElementById("user").innerHTML += userContainer;
 }

@@ -1,19 +1,33 @@
 // fetch from cart
 
-let productsFromCart = localStorage.getItem("productsInCart");
-console.log(productsFromCart);
-if(productsFromCart){
-  productsFromCart = JSON.parse(productsFromCart);
+let productsFromStorage = localStorage.getItem("productsInCart");
+console.log(productsFromStorage);
+if(productsFromStorage){
+  productsFromStorage = JSON.parse(productsFromStorage);
   
-  draw(productsFromCart);
+  draw(productsFromStorage);
 }
+
+
+
+//total
+var total = 0;
+const sumPrice = document.querySelectorAll(".cart-item-price")
+sumPrice.forEach((element)=>{console.log(element.lastChild.data.substring(1))
+ total += Number(element.lastChild.data.substring(1))
+console.log(total)
+return total})
+document.getElementById('total').innerHTML = `$${total}`;
+document.getElementById('endCost').innerHTML = `$${total}`;
+
+
 
 
 //draw
 
-function draw(productsFromCart){
-  console.log(productsFromCart)
-  let productsUI = productsFromCart.map((product)=>{
+function draw(productsFromStorage){
+  console.log(productsFromStorage)
+  let productsUI = productsFromStorage.map((product)=>{
     return `
           <div class="cart-item" id="${product.id}">
             <div class="product-details">
@@ -46,8 +60,6 @@ function draw(productsFromCart){
 }
 draw();
  
-
-
 
 
 
@@ -175,7 +187,7 @@ document
     promoInput.value = "";
   });
 
-var discount = 0;
+var discount ;
 var endCost;
 //Total Cost
 function TotalCost() {
@@ -184,6 +196,7 @@ function TotalCost() {
     document.querySelector("#total").textContent.substring(1)
   );
   console.log(totalCost)
+  
    endCost = totalCost == 0 ? 0 : totalCost + Number(deliveryCost);
    // totalCost == 0 ? 0 : totalCost + Number(deliveryCost) - discount;
   totalCostElement.textContent = `$${endCost} `;
@@ -197,10 +210,10 @@ function goToShopping() {
 
 
 //checkout
-
+console.log(endCost)
 function checkout(){
-  var checkout = [...productsFromCart,endCost]
+  var checkout = [...productsFromStorage,{"total price":endCost}]
   console.log(checkout);
-  localStorage.setItem('Checkout', JSON.stringify(checkout));
-
+  localStorage.setItem('checkout', JSON.stringify(checkout));
+  
 }
