@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart | Register Page</title>
+    <link rel="stylesheet" href="assets/login & register.css" />
+  </head>
+  <div class="container" style="position: relative; ">
+
+    <img src="./assets/images/25.png" alt="" srcset="" style="position: absolute; top: 100px; left: 50px;">
+    <header>
+      <div class="header">
+        <div class="container2">
+          <div class="header-content">
+            <a class="logo" href="home.html"><img src="./assets/images/logo/logo2.svg" alt="logo"></a>
+            <nav>
+              <ul style="list-style: none">
+                <li><a class="link" href="login.html">Sign In</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container_form">
+      <h1 id="h1">Register User</h1>
+      <form>
+        <input
+          id="U_Name"
+          class="elements email"
+          type="text"
+          required
+          placeholder="Enter User Name"
+          pattern="^[a-zA-Z0-9_]{3,16}$"
+        />
+        <input
+          id="password"
+          class="elements email"
+          type="password"
+          required
+          placeholder="Set Your Password"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+        />
+        <input
+          id="email"
+          class="elements email"
+          type="email"
+          required
+          placeholder="Enter Your Email"
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        />
+        <button id="btn" type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+    <script src="./assets/register.js"></script>
+  </body>
+</html>

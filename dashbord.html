@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../css/all.min.css" />
+  </head>
+  <body>
+    <aside>
+      <div class="sidebar-header">
+        <i class="fa-solid fa-dumpster"></i>
+        <h2>Dashboard</h2>
+      </div>
+      <ul>
+        <li>
+          <a href="#products" onclick="showSection('products')"
+            ><i class="fas fa-box"></i> Products</a
+          >
+        </li>
+        <li>
+          <a href="#orders" onclick="showSection('orders')"
+            ><i class="fas fa-shopping-cart"></i> Orders</a
+          >
+        </li>
+        <li>
+          <a href="#users" onclick="showSection('users')"
+            ><i class="fas fa-users"></i> Users</a
+          >
+        </li>
+      </ul>
+    </aside>
+    <div class="main-content">
+      <header>
+        <h1>E-Commerce Dashboard</h1>
+      </header>
+      <main>
+        <section id="products" class="content-section">
+          <h2>Products</h2>
+          <div class="content">
+            <!-- Product List -->
+          </div>
+        </section>
+        <section id="orders" class="content-section" style="display: none">
+          <h2>Orders</h2>
+          <div class="content">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Product Title</th>
+                  <th>User's Email</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+                <!-- Additional rows as needed -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="users" class="content-section" style="display: none">
+          <h2>Users</h2>
+          <div class="content">
+            <!-- User List -->
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p>&copy; 2024 E-Commerce Dashboard</p>
+      </footer>
+    </div>
+    <script src="./assets/dashbord.js"></script>
+  </body>
+</html>
