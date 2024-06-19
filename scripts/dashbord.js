@@ -63,3 +63,45 @@ function rejectOrder(ele) {
   var targetOrder = ele.closest("tr");
   targetOrder.remove();
 }
+
+// products handling =================================================================
+
+var product_list = document.querySelector(".product-list");
+var productsQNY = document.querySelector("#productsQNY span");
+
+function displayProducts() {
+  var products = JSON.parse(localStorage.getItem("products")) || [];
+  products.map((product, index) => {
+    var productContainer = ``;
+    productContainer += `
+      <div class="product-item">
+                <img
+                  src="${product.img}"
+                  alt="Product Image"
+                  class="product-image"
+                />
+                <div class="product-info">
+                  <h2>${product.title}</h2>
+                  <p><strong>Order ID:</strong> ${product.id}</p>
+                  <p><strong>Price:</strong> $${product.price}</p>
+                  <p><strong>Quantity:</strong> ${product.stock_Quantity}</p>
+                  <p><strong>Category:</strong> ${product.category}</p>
+                </div>
+                <div class="product-actions">
+                  <button class="update-btn">Update</button>
+                  <button class="delete-btn" onclick="deleteproduct(${index})">Delete</button>
+                </div>
+              </div>
+              `;
+    product_list.innerHTML += productContainer;
+    productsQNY.textContent = products.length;
+  });
+}
+displayProducts();
+
+function deleteproduct(index) {
+  var products = JSON.parse(localStorage.getItem("products"));
+  products.splice(index, 1);
+  localStorage.setItem("products", JSON.stringify(products));
+  displayProducts();
+}

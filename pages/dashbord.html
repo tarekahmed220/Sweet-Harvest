@@ -37,10 +37,14 @@
       </header>
       <main>
         <section id="products" class="content-section">
-          <h2>Products</h2>
-          <div class="content">
-            <!-- Product List -->
+          <div id="productsdiv">
+            <h2>Products</h2>
+            <p id="productsQNY">products Quantity: <span>0</span></p>
           </div>
+
+          <button class="add-product-btn">Add New Product</button>
+
+          <div class="product-list"></div>
         </section>
         <section id="orders" class="content-section" style="display: none">
           <h2>Orders</h2>
@@ -69,9 +73,9 @@
           </div>
         </section>
       </main>
-      <footer>
+      <!-- <footer>
         <p>&copy; 2024 E-Commerce Dashboard</p>
-      </footer>
+      </footer> -->
     </div>
     <script src="../scripts/dashbord.js"></script>
   </body>
