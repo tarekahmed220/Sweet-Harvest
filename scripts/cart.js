@@ -36,9 +36,9 @@ function draw(productsFromCart){
               <button class="plus" onclick="addQuantity(this)">+</button>
             </div>
 
-            <div class="cart-item-price">${product.price}</div>
+            <div class="cart-item-price">$${product.price}</div>
 
-            <div class="cart-item-total">${product.price}</div>
+            <div class="cart-item-total">$${product.price}</div>
           </div>
           `;
     }).join("")//to avoid show backticks 
@@ -46,9 +46,6 @@ function draw(productsFromCart){
 }
 draw();
  
-
-
-
 
 
 
@@ -65,14 +62,8 @@ function addQuantity(ele) {
   if (quantity >= 1) {
     quantity++;
     inputElement.value = quantity;
-
-    
-     productsFromCart.map((product)=>{
-      console.log(product.price)// problem in get price
-      return  totalPrice.textContent = product.price * quantity;
-    })
-      // parseFloat(currentPrice.textContent.substring(1)) * quantity;
-    
+    console.log(cartDiv)
+    totalPrice.textContent = `$${parseFloat(currentPrice.textContent.substring(1)) * quantity}`;  
   }
   calcTotal();
   TotalCost();
@@ -111,26 +102,34 @@ function removeItem(el) {
   calcTotal();
   TotalCost();
 }
+
+
 var total;
-var deliveryCost;
+var deliveryCost = 0;
 function calcTotal() {
   total = 0;
   var cartItems = document.querySelectorAll(".cart-item");
-
+  console.log(cartItems)
   cartItems.forEach(function (item) {
-    var price = parseFloat(
+    
+    var priceProduct = parseFloat(
       item.querySelector(".cart-item-total").textContent.substring(1)
     );
+    
 
     // var quantity = parseInt(item.querySelector(".cart-item-input").value);
-    total += price;
+    total += priceProduct;
   });
   document.querySelector("#total").textContent = `$${total}`;
 }
+
 calcTotal();
 // get Delivery Cost
 function getDeliveryCost() {
+  
   deliveryCost = document.querySelector("#sippmethod").value;
+
+  console.log(deliveryCost)
   return Number(deliveryCost);
 }
 getDeliveryCost();
@@ -177,19 +176,31 @@ document
   });
 
 var discount = 0;
-
+var endCost;
 //Total Cost
 function TotalCost() {
   var totalCostElement = document.querySelector("#endCost");
   var totalCost = parseFloat(
     document.querySelector("#total").textContent.substring(1)
   );
-  var endCost =
-    totalCost == 0 ? 0 : totalCost + Number(deliveryCost) - discount;
+  console.log(totalCost)
+   endCost = totalCost == 0 ? 0 : totalCost + Number(deliveryCost);
+   // totalCost == 0 ? 0 : totalCost + Number(deliveryCost) - discount;
   totalCostElement.textContent = `$${endCost} `;
+  console.log(deliveryCost)
 }
 TotalCost();
 
 function goToShopping() {
   window.location.href = "home.html";
+}
+
+
+//checkout
+
+function checkout(){
+  var checkout = [...productsFromCart,endCost]
+  console.log(checkout);
+  localStorage.setItem('Checkout', JSON.stringify(checkout));
+
 }
