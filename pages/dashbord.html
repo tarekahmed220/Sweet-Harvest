@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../styles/admin.css" />
+    <link rel="stylesheet" href="../styles/all.min.css" />
+  </head>
+  <body>
+    <aside>
+      <div class="sidebar-header">
+        <i class="fa-solid fa-dumpster"></i>
+        <h2>Dashboard</h2>
+      </div>
+      <ul>
+        <li>
+          <a href="#products" onclick="showSection('products')"
+            ><i class="fas fa-box"></i> Products</a
+          >
+        </li>
+        <li>
+          <a href="#orders" onclick="showSection('orders')"
+            ><i class="fas fa-shopping-cart"></i> Orders</a
+          >
+        </li>
+        <li>
+          <a href="#users" onclick="showSection('users')"
+            ><i class="fas fa-users"></i> Users</a
+          >
+        </li>
+      </ul>
+    </aside>
+    <div class="main-content">
+      <header>
+        <h1>E-Commerce Dashboard</h1>
+      </header>
+      <main>
+        <section id="products" class="content-section">
+          <div id="productsdiv">
+            <h2>Products</h2>
+            <p id="productsQNY">products Quantity: <span>0</span></p>
+          </div>
+          <div
+            style="display: flex; justify-content: center; align-items: center"
+          >
+            <button class="add-product-btn" onclick="showNewProductForm()">
+              Add New Product
+            </button>
+            <button class="reset" onclick="resetProducts()">
+              Back To default
+            </button>
+          </div>
+          <!-- add new product -->
+          <div class="new-product-form" id="new-product-form">
+            <h2>Add New Product</h2>
+            <form id="product-form">
+              <label for="product-title">Product Title:</label>
+              <input type="text" id="product-title" name="title" required />
+
+              <label for="product-category">Category:</label>
+              <input
+                type="text"
+                id="product-category"
+                name="category"
+                required
+              />
+
+              <label for="product-id">Product ID:</label>
+              <input type="number" id="product-id" name="id" required />
+
+              <label for="product-price">Price:</label>
+              <input type="number" id="product-price" name="price" required />
+
+              <label for="product-quantity">Quantity:</label>
+              <input
+                type="number"
+                id="product-quantity"
+                name="quantity"
+                required
+              />
+
+              <button type="submit">Add Product</button>
+            </form>
+          </div>
+
+          <div class="product-list"></div>
+        </section>
+        <section id="orders" class="content-section" style="display: none">
+          <h2>Orders</h2>
+          <div class="content">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Product Title</th>
+                  <th>User's Email</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+                <!-- Additional rows as needed -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="users" class="content-section" style="display: none">
+          <h2>Users</h2>
+          <div class="content">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>UserName</th>
+                  <th>User's Email</th>
+                  </tr>
+              </thead>
+              <tbody id="user">
+                                <!-- Additional rows as needed -->
+
+              </tbody>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="../scripts/dashbord.js"></script>
+  </body>
+</html>

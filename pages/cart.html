@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bee -Cart</title>
+    <link rel="stylesheet" href="../styles/cartStyle.css" />
+    <link rel="stylesheet" href="../styles/all.min.css" />
+  </head>
+  <body>
+    <div class="container">
+
+
+
+      <div class="shopping-cart">
+        <div class="card-header">
+          <img src="../assets/images/logo/logo2.svg" alt="logo" style="width: 100px; height: 100px;">
+          <h2>Shopping Cart</h2>
+          <h2 id="orderNumbers">X items</h2>
+        </div>
+
+        <div class="card-body" style="display: block;">
+          <div class="titles">
+            <div class="first">Product Details</div>
+            <div class="second">Quantity</div>
+            <div>Price</div>
+            <div>Total</div>
+          </div>
+<div class="product-content">
+      
+      </div>
+ <div class="icon" onclick="goToShopping()">
+  <i class="fa-solid fa-arrow-left"></i>
+  <span>Continue Shopping</span>
+</div>
+</div>
+    </div>
+
+    
+
+
+<div>
+ 
+<div class="cart-summary" style="width: 300px;">
+  <div class="card-header">
+    <h2>Order Summary</h2>
+  </div>
+  <div class="summary-card-body">
+    <div class="price-details">
+      <span id="numitem">ITEMS </span>
+      <span id="total">$0</span>
+    </div>
+    <div class="shipping">SHIPPING</div>
+    <select
+      name="shipping_method"
+      id="sippmethod"
+      onchange="playAllFunctions()"
+    >
+      <option value="5" selected>Standard Delivery - $5.00</option>
+      <option value="10">Express Delivery - $10.00</option>
+      <option value="15">Next-Day Delivery - $15.00</option>
+      <option value="20">Same-Day Delivery - $20.00</option>
+    </select>
+    <div class="promoCode">
+      <div>PROMO CODE</div>
+      <input type="text" placeholder="Enter Your Code" /><br />
+      <button>APPLY</button>
+      <div class="applied">
+        <span class="fistSpan"></span>
+        <span class="secondIcon"> </span>
+      </div>
+    </div>
+    <div class="price-details">
+      <span>TOTAL COST</span>
+      <span id="endCost">$0</span>
+    </div>
+    <div class="place-order">
+      <button onclick="checkout()">CHECKOUT</button>
+    </div>
+  </div>
+</div>
+</div>
+    <script src="https://kit.fontawesome.com/37df469d9b.js" crossorigin="anonymous"></script>
+    <script src="../scripts/cart.js"></script>
+  </body>
+</html>

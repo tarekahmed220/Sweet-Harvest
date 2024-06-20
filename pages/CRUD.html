@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML CRUDS</title>
+    <link rel="stylesheet" href="../styles/CRUD_style.css">
+</head>
+<body>
+<div class="CRUDS">
+    <div class="head">
+<h2>
+    admin site
+</h2>
+<p style="font-size: 30px;">CRUD operation</p>
+    </div>
+
+
+    <div class="inputs">
+     <table > <!--border="1px"-->
+<tr id="tr_1">
+<th colspan="10">
+    <input id="tit" type="text" name="title" placeholder="title">
+</th>
+</tr>
+
+<tr id="tr_2">
+    <th colspan="10">
+        <input id="pri" type="number" name="price" placeholder="price">
+    </th>
+</tr>
+
+
+<tr id="tr_3">
+    <th colspan="10">
+        <input id="stk" type="number" name="stok" placeholder="stok">
+    </th>
+</tr>
+
+
+<tr id="tr_4">
+    <th colspan="10">
+        <input id="categ" type="text" name="category" placeholder="category">
+    </th>
+</tr>
+
+
+
+<tr id="tr_5">
+    <th colspan="10">
+            <input id="img" type="file" name="image" >
+    </th>
+</tr>
+
+
+<tr id="tr_6">
+    <th colspan="5">
+        <button id="btn_creat"  name="btn_creat" "category" >Create</button>
+    </th>
+<!--
+    <th colspan="5">
+        <button id="btn_read" onclick="readProducts()" name="btn_read" "category">show data</button>
+    </th>
+    -->
+</tr>
+            <!--            button show data    -->
+
+<tr id="tr_show_data">
+
+    <th colspan="5">
+        <button id="btn_read" onclick="readProducts()" name="btn_read" "category">show data</button>
+    </th>
+</tr>
+
+<!--       search      -->
+
+
+
+<tr id="tr_7">
+    <th colspan="10">
+        <input  onkeyup="search(this.value)" id="search" type="text" name="search" placeholder="search ">
+    </th>
+</tr>
+
+
+<tr id="tr_8">
+    <th  class="th_data" >
+        Id
+    </th>
+
+    <th class="th_data" >
+        Title
+    </th>
+
+    <th class="th_data" >
+        Price
+    </th>
+
+    <th class="th_data" >
+        Stok
+    </th>
+
+    <th class="th_data">
+        Category
+    </th>
+
+    <th class="th_data">
+        Update
+    </th>
+
+    <th class="th_data">
+        Delete
+    </th>
+
+</tr>
+
+                                 <!-- table data -->
+<!-- <tbody> -->
+    <tbody id="tbody">
+        <!--
+     <tr id="tr_9">
+        <td class="th_data" >
+            3
+        </td>
+    
+        <td class="th_data" >
+            honey
+        </td>
+    
+        <td class="th_data" >
+            250$
+        </td>
+    
+        <td class="th_data" >
+            5
+        </td>
+    
+        <td class="th_data">
+            honey
+        </td>
+    
+        <td class="th_data">
+            <button id="btn_up">Update</button>
+            
+        </td>
+    
+        <td class="th_data">
+            <button id="btn_del">Delete</button>
+            
+        </td>
+     </tr>  -->
+    </tbody>
+<!-- </tbody> -->
+
+     </table>
+    </div>
+</div>
+
+    
+    <script src="../scripts/CRUD_script.js"></script>
+</body>
+</html>
