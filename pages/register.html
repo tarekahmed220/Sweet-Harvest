@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cart | Register Page</title>
     <link rel="stylesheet" href="../styles/login & register.css" />
+    <link rel="stylesheet" href="../styles/all.min.css" />
   </head>
   <div class="container" style="position: relative; ">
 
@@ -26,32 +27,64 @@
 
     <div class="container_form">
       <h1 id="h1">Register User</h1>
-      <form>
+      <div class="validContainer">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="validationmsg">
+          please enter your email address
+        </div>
+      </div>
+      <form >
         <input
-          id="U_Name"
+          id="firstName" 
           class="elements email"
           type="text"
-          placeholder="Enter User Name"
+          placeholder="First Name"
           pattern="[a-zA-Z_]{3,16}"
+          title = "please enter correct name at least 3 characters and less than 8 characters"
+          required
+          pattern="[a-zA-Z_]{3,8}"
+        />
+        <input
+          id="lastName" 
+          class="elements email"
+          type="text"
+          placeholder="Last Name"
+          pattern="[a-zA-Z_]{3,16}"
+          title = "please enter correct name at least 3 characters and less than 8 characters"
+          
+        />
+        <input
+          id="age" 
+          class="elements email"
+          type="number"
+          placeholder="Your Age"
+         
           title = "please enter correct name at least 3 characters and less than 8 characters"
           
         />
         <input
           id="password"
           class="elements email"
-          type="text"
+          type="password"
           placeholder="Set Your Password"
-          pattern="[a-zA-Z0-9]{8,}"
+          pattern="[a-zA-Z0-9]{8,}[@$#%\*^&]+"
           title="must be at least 8 characters or numbers"
-          
+          required
+        />
+        <input
+          id="repassword"
+          class="elements email"
+          type="password"
+          placeholder="Repeat Your Password"
+          title="must be at least 8 characters or numbers"
+          required
         />
         <input
           id="email"
           class="elements email"
           type="text"
           placeholder="Enter Your Email"
-          pattern="[a-zA-Z0-9._+-]+[a-zA-Z0-9 -]+\.[a-z]{2,4}"
-          
+          required
         />
         <button id="btn" type="submit">Sign Up</button>
       </form>

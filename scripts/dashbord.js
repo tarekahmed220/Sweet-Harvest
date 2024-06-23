@@ -25,30 +25,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // orders handle =================================================================
 var ordersList = JSON.parse(localStorage.getItem("checkout")) || [];
-for (var i = 0; i < ordersList.length; i++) {
-  console.log(ordersList[i]);
-
-  var orderContainer = ``;
-  orderContainer += `
-    <tr>
-                  <td>${ordersList[i].id}</td>
-                  <td>${ordersList[i].title}</td>
-                   <td>${ordersList[i].userEmail.email}</td>
-                  <td>$${ordersList[i].price}</td>
-                  <td>${ordersList[i].stock_Quantity}</td>
-                  <td class="action-buttons">
+var ordersFromCheckout = ordersList.filter((order) => {
+  return order.title;
+});
+var orderCostFromCheckout = ordersList.filter((order) => {
+  return !order.title;
+})[0].endCost;
+console.log(orderCostFromCheckout);
+console.log(ordersFromCheckout);
+var tbody = document.getElementById("tbody");
+var userEmail = localStorage.getItem("user");
+ordersList.map((order) => {
+  if (order.id) {
+    tbody.innerHTML += `
+        <tr>
+                  <td>${order.id}</td>
+                  <td>${order.title}</td>
+                 
+                  <td>$${order.price}</td>
+                  <td>${order.stock_Quantity}</td>
+                 
+          </tr>
+          <tr>
+           <td class="action-buttons" colspan="2">
                     <button class="accept-btn" onclick="acceptOrder(this)" >
                       <i class="fas fa-check"></i>
                     </button>
+            </td>
+            <td  class="action-buttons" colspan="2">
                     <button onclick="rejectOrder(this)" class="reject-btn">
                       <i class="fas fa-times"></i>
                     </button>
-                  </td>
-                </tr>
-  `;
+            </td>
+          </tr>
+    
+    `;
+  }
+});
+// for (var i = 0; i < ordersList.length; i++) {
+//   console.log(ordersList[i]);
 
-  var tbody = (document.getElementById("tbody").innerHTML += orderContainer);
-}
+//   var orderContainer = ``;
+//   orderContainer += `
+//     <tr>
+//                   <td>${ordersList[i].id}</td>
+//                   <td>${ordersList[i].title}</td>
+
+//                   <td>$${ordersList[i].price}</td>
+//                   <td>${ordersList[i].stock_Quantity}</td>
+//                   <td class="action-buttons">
+//                     <button class="accept-btn" onclick="acceptOrder(this)" >
+//                       <i class="fas fa-check"></i>
+//                     </button>
+//                     <button onclick="rejectOrder(this)" class="reject-btn">
+//                       <i class="fas fa-times"></i>
+//                     </button>
+//                   </td>
+//                 </tr>
+//   `;
+
+//   var tbody = (document.getElementById("tbody").innerHTML += orderContainer);
+// }
 
 // todo : remove order form local storage
 function acceptOrder(ele) {
@@ -82,6 +119,7 @@ function insertProductToLS() {
       img: "../assets/images/products/honey_1.jpg",
       price: 21,
       stock_Quantity: 3,
+      QuantityOrdered: 1,
     },
     {
       id: 12,
@@ -90,6 +128,7 @@ function insertProductToLS() {
       img: "../assets/images/products/honey_2.jpg",
       price: 37,
       stock_Quantity: 4,
+      QuantityOrdered: 1,
     },
 
     {
@@ -99,6 +138,7 @@ function insertProductToLS() {
       img: "../assets/images/products/honey_3.jpg",
       price: 27,
       stock_Quantity: 3,
+      QuantityOrdered: 1,
     },
 
     {
@@ -108,6 +148,7 @@ function insertProductToLS() {
       img: "../assets/images/products/honey_4.jpg",
       price: 42,
       stock_Quantity: 4,
+      QuantityOrdered: 1,
     },
     {
       id: 15,
@@ -116,6 +157,7 @@ function insertProductToLS() {
       img: "../assets/images/products/honey_5.jpg",
       price: 35,
       stock_Quantity: 3,
+      QuantityOrdered: 1,
     },
     {
       id: 21,
@@ -124,6 +166,7 @@ function insertProductToLS() {
       img: "../assets/images/products/herbs_1.jpg",
       price: 4,
       stock_Quantity: 4,
+      QuantityOrdered: 1,
     },
     {
       id: 22,
@@ -132,6 +175,7 @@ function insertProductToLS() {
       img: "../assets/images/products/herbs_2.jpg",
       price: 3,
       stock_Quantity: 3,
+      QuantityOrdered: 1,
     },
     {
       id: 23,
@@ -140,6 +184,7 @@ function insertProductToLS() {
       img: "../assets/images/products/herbs_3.jpg",
       price: 8,
       stock_Quantity: 4,
+      QuantityOrdered: 1,
     },
     {
       id: 24,
@@ -148,6 +193,7 @@ function insertProductToLS() {
       img: "../assets/images/products/herbs_4.jpg",
       price: 13,
       stock_Quantity: 3,
+      QuantityOrdered: 1,
     },
     {
       id: 25,
@@ -156,6 +202,7 @@ function insertProductToLS() {
       img: "../assets/images/products/herbs_5.jpg",
       price: 10,
       stock_Quantity: 4,
+      QuantityOrdered: 1,
     },
     {
       id: 31,
@@ -164,6 +211,7 @@ function insertProductToLS() {
       img: "../assets/images/products/oil_4.jpg",
       price: 15,
       stock_Quantity: 3,
+      QuantityOrdered: 1,
     },
     {
       id: 32,
@@ -172,6 +220,7 @@ function insertProductToLS() {
       img: "../assets/images/products/oil_5.jpg",
       price: 13,
       stock_Quantity: 4,
+      QuantityOrdered: 1,
     },
     {
       id: 33,
@@ -180,6 +229,7 @@ function insertProductToLS() {
       img: "../assets/images/products/oil_2.jpg",
       price: 5,
       stock_Quantity: 3,
+      QuantityOrdered: 1,
     },
     {
       id: 34,
@@ -188,6 +238,7 @@ function insertProductToLS() {
       img: "../assets/images/products/oil_3.jpg",
       price: 17,
       stock_Quantity: 4,
+      QuantityOrdered: 1,
     },
     {
       id: 35,
@@ -196,6 +247,7 @@ function insertProductToLS() {
       img: "../assets/images/products/oil_1.jpg",
       price: 25,
       stock_Quantity: 3,
+      QuantityOrdered: 1,
     },
   ];
   localStorage.setItem("products", JSON.stringify(products));
@@ -344,17 +396,28 @@ document
     displayProducts();
   });
 // useres =================================================================
-const userList = JSON.parse(localStorage.getItem("users")) || [];
+var userList = JSON.parse(localStorage.getItem("fullUsersData")) || [];
 for (var i = 0; i <= userList.length; i++) {
   var userContainer = ``;
   userContainer += `
     <tr>
-        <td>${userList[i].id}</td>
-        <td>${userList[i].username}</td>
-        <td>${userList[i].email}</td>
+     
+    <td>${userList[i].firstName + " " + userList[i].lastName}</td>
+    <td>${userList[i].email}</td>
+    <td>${userList[i].age}</td>
+    <td>${userList[i].joinedDate}</td>
+    <td><button class="deleteUser" onclick="deleteUser(${
+      userList[i].id
+    },this)">Delete</button></td>
       
       </tr>
   `;
 
   document.getElementById("user").innerHTML += userContainer;
+}
+
+function deleteUser(id, ele) {
+  userList = userList.filter((user) => user.id !== id);
+  localStorage.setItem("fullUsersData", JSON.stringify(userList));
+  ele.closest("tr").remove();
 }

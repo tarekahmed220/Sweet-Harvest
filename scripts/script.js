@@ -5,14 +5,14 @@ let login = document.getElementById("login");
 //logout
 let logout = document.getElementById("logout");
 logout.addEventListener("click", function () {
-  setTimeout(() => {
-    window.location = "register.html";
-  }, 1000);
+  localStorage.setItem("isLogin", "false");
+  localStorage.removeItem("activeUser");
+  window.location = "login.html";
 });
 
 // count of cart
 
-let count_cart = document.getElementById("count_cart");
+var count_cart = document.getElementById("count_cart");
 
 var products = JSON.parse(localStorage.getItem("products")) || [];
 function draw() {
@@ -60,15 +60,15 @@ input.addEventListener('keyup',(e)=>{
 // console.log(stock);
 
 // search('cloves',stock);
-
-let username = JSON.parse(localStorage.getItem("users"));
-
-// console.log(username[0].username);
-let email = username[0].email;
-if (username) {
-  login.remove();
-  user_data.style.display = "flex";
-  user.innerHTML = username[0].username;
+var isLogin = localStorage.getItem("isLogin") === "true";
+if (isLogin) {
+  var activeUser = JSON.parse(localStorage.getItem("activeUser"));
+  if (activeUser) {
+    var username = activeUser.username;
+    login.remove();
+    user_data.style.display = "flex";
+    user.innerHTML = username;
+  }
 }
 
 //filter
@@ -100,27 +100,34 @@ switcherlist.forEach(function (li) {
 });
 
 //cart
-let added_product = [];
+var productsInCart = JSON.parse(localStorage.getItem("productsInCart")) || [];
+
+// let isLogin = localStorage.getItem("isLogin") === "true";
+if (isLogin) {
+  count_cart.style.display = "block";
+  count_cart.innerHTML = productsInCart.length;
+} else {
+  count_cart.style.display = "none";
+  count_cart.innerHTML = "";
+}
+
 function cart(id, element) {
-  console.log(element);
-  //check login
-  if (username) {
+  let isLogin = localStorage.getItem("isLogin") === "true";
+  if (isLogin) {
     //find product
-    let product_added = products.find((element) => element.id === id); // to return object of product
-    console.log(product_added);
-    product_added = {
-      ...product_added,
-      userEmail: { ...product_added.userEmail, email },
-    };
-
-    added_product = [...added_product, product_added]; //create array of products in cart
+    let targetProduct = products.find((element) => element.id === id); // to return object of product
+    let targetProductIndex = targetProduct.id;
+    console.log(targetProduct);
+    targetProduct.stock_Quantity = targetProduct.stock_Quantity - 1;
+    productsInCart.push(targetProduct);
+    localStorage.setItem("productsInCart", JSON.stringify(productsInCart));
+    products.splice(targetProductIndex, 1, targetProduct);
+    localStorage.setItem("products", JSON.stringify(products));
     count_cart.style.display = "block"; // show count of cart
-    count_cart.innerHTML = added_product.length;
-    product_added.stock_Quantity -= 1; //update Stock if place order done
-
-    localStorage.setItem("productsInCart", JSON.stringify(added_product));
+    count_cart.innerHTML = productsInCart.length;
     element.setAttribute("disabled", true);
   } else {
+    console.log("please login");
     window.location = "login.html"; // to redirection to login page
   }
 }
@@ -137,5 +144,41 @@ function wishlist(id) {
 
 //tocart
 function toCart() {
-  window.location = "cart.html"; // to redirection to cart
+  let isLogin = localStorage.getItem("isLogin") === "true";
+  if (isLogin) {
+    window.location = "cart.html";
+  } else {
+    window.location = "login.html";
+  }
 }
+
+// contact form
+var contactEmail = document.querySelector(".email");
+const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,7}$/;
+var validContainer = document.querySelector(".validContainer");
+var validationmsg = document.querySelector(".validationmsg");
+document
+  .querySelector(".submit")
+  .addEventListener("click", function handleClick(e) {
+    e.preventDefault();
+    if (contactEmail.value == "") {
+      validContainer.style.display = "flex";
+      validationmsg.textContent = "Please enter Your Email";
+      contactEmail.style.border = "2px solid red";
+    } else if (!contactEmail.value.includes("@")) {
+      console.log("mail not valid");
+      validContainer.style.display = "flex";
+      validationmsg.textContent =
+        "Please enter valid Email, your Email must contains (@)";
+      contactEmail.style.border = "2px solid red";
+    } else if (!regex.test(contactEmail.value)) {
+      console.log("mail not valid");
+      validContainer.style.display = "flex";
+      validationmsg.textContent = "Your email is not a valid email!";
+      contactEmail.style.border = "2px solid red";
+    } else {
+      validContainer.style.display = "none";
+      contactEmail.style.border = "#eac500 2px solid";
+      contactEmail.value = "";
+    }
+  });

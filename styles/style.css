@@ -7,6 +7,9 @@
 /* body::-webkit-scrollbar{
   display: none;
 } */
+html {
+  scroll-behavior: smooth;
+}
 .flex {
   display: flex;
 }
@@ -357,7 +360,7 @@ header {
 }
 .contact {
   padding: 90px 0 100px 0;
-  background-image: url(./images/bg.png);
+  background-image: url(../assets/images/bg.png);
 }
 
 .services .events {
@@ -437,4 +440,79 @@ footer .logo {
 .add-to-wishlist {
   background-color: transparent;
   border: none;
+}
+/* about styles */
+
+/* .container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
+.about {
+  margin: 90px 0;
+  /* height: 100vh; */
+}
+
+.about h2 {
+  text-align: center;
+  color: #555;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: space-evenly;
+}
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+  }
+}
+
+.profile img {
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.bio {
+  max-width: 600px;
+}
+
+.bio p {
+  margin: 10px 0;
+  line-height: 1.6;
+  color: #666;
+}
+.validContainer {
+  position: relative;
+  width: 25%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  margin: 20px auto;
+  background-color: #f2dede;
+}
+.validationmsg {
+  color: #da1815;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  text-shadow: none;
+}
+.validContainer i {
+  color: #ecd02c;
+  position: absolute;
+  top: -10px;
+  right: -5px;
+  font-size: 23px;
 }

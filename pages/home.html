@@ -22,10 +22,10 @@
         <div class="nav-list" style="position: relative">
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Our Products</a></li>
+            <li><a href="#products">Our Products</a></li>
             <li><a href="#">Shop</a></li>
-            <li><a href="#">Your Orders</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="#contact">Contact us</a></li>
+            <li><a href="#about">About Us</a></li>
             <li>-</li>
             <!--       <li class="vl"></li> -->
           </ul>
@@ -61,7 +61,7 @@
       <div><img src="../assets/images/25.png" alt="" class="honey" /></div>
     </header>
 
-    <section class="products">
+    <section class="products" id="products">
       <div class="product pd-y">
         <div class="container title">
           <pre>O U R    P R O D U C T</pre>
@@ -80,7 +80,7 @@
       </div>
     </section>
 
-    <section class="services">
+    <section class="services" id="services">
       <div class="container">
         <div class="title">
           <pre>S E R V I C E S</pre>
@@ -104,8 +104,26 @@
         </div>
       </div>
     </section>
-
-    <section class="contact">
+    <section class="about" id="about">
+      <h2>About us</h2>
+      <div class="profile">
+        <img src="../assets/images/myphoto.jpg" alt="Tarek Ahmed" />
+        <div class="bio">
+          <p>
+            Hello! My name is Tarek Ahmed, a 26-year-old Front End Developer and
+            a student at the Information Technology Institute (ITI). Welcome to
+            Sweet Harvest, your go-to place for the finest honey.
+          </p>
+          <p>
+            Our mission is to bring you the purest and most delicious honey,
+            harvested with love and care. We believe in quality and
+            authenticity, ensuring that every jar of honey we provide is a
+            testament to our commitment to excellence.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
       <div class="container">
         <div class="title">
           <pre>C O N T A C T   U S</pre>
@@ -118,7 +136,7 @@
                 We Welcome All Opinions, Suggestions And Complaints Contact Us
                 At Any Time
               </p>
-              <form action="#" class="form_mail">
+              <form action="#" class="form_mail" id="contactForm">
                 <label for="">Your Suggests</label><br /><br />
                 <textarea class="textarea"></textarea><br />
                 <label>Email:</label>
@@ -128,7 +146,12 @@
                   placeholder="enter your email"
                 />
                 <input type="submit" value="Send" class="submit" />
+                <div class="validContainer">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                  <div class="validationmsg"></div>
+                </div>
               </form>
+
               <span></span>
             </div>
             <div class="num-phone"></div>

@@ -104,8 +104,6 @@ th {
 }
 
 .action-buttons {
-  display: flex;
-  justify-content: center;
   gap: 20px;
 }
 
@@ -324,4 +322,20 @@ body {
 
 .new-product-form button:hover {
   background-color: #45a049;
+}
+.deleteUser {
+  width: 90%;
+  padding: 10px 0;
+  cursor: pointer;
+  background: #3498db;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  font-size: 15px;
+  opacity: 0.9;
+  transition: all 0.3s;
+}
+.deleteUser:hover {
+  opacity: 1;
+  font-size: 16px;
 }

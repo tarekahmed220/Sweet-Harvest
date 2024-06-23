@@ -2,7 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Cairo,sans-serif;
+  font-family: Cairo, sans-serif;
   text-shadow: black 0px 0px 6px;
   /* box-sizing: border-box; */
 }
@@ -11,7 +11,6 @@ body {
   /* background-image: url("./images/25.png"); */
   background-repeat: no-repeat;
   /* background-size: cover; */
-  
 }
 
 header {
@@ -56,7 +55,7 @@ header {
   /* border: 3px solid black;*/
   border-radius: 20px;
   margin: auto 0px auto 650px;
-  padding: 20px;    
+  padding: 20px;
   margin-top: 50px;
 }
 .elements {
@@ -68,7 +67,6 @@ header {
   font-size: 20px;
   height: 50px;
   text-shadow: none;
-  
 }
 .elements:hover {
   border: 3px solid black;
@@ -86,17 +84,16 @@ header {
   margin-top: 20px;
   font-weight: bold;
   box-shadow: #000000 0px 0px 6px;
-
 }
 #btn:hover {
   background-color: rgb(215, 134, 29);
 }
 .link {
   color: white;
-/*   background-color: rgba(215, 134, 29, 0.425);
- */  /*background-color:rgb(253, 220, 110);*/
- /* border: #ccae02 2px solid; */
- box-shadow: #0c0b02 0px 0px 3px;
+  /*   background-color: rgba(215, 134, 29, 0.425);
+ */ /*background-color:rgb(253, 220, 110);*/
+  /* border: #ccae02 2px solid; */
+  box-shadow: #0c0b02 0px 0px 3px;
   border: 2px solid rgb(118, 84, 39);
   border-radius: 20px;
   font-size: 25px;
@@ -104,29 +101,26 @@ header {
   text-align: center;
   text-decoration: none;
   font-weight: bold;
- 
 }
 
 .link:hover {
   color: rgb(253, 220, 110);
   background-color: rgba(215, 134, 29, 0);
- 
 }
 /* added */
 
-.email{
-
+.email {
   width: 90%;
   padding: 5px;
   margin: auto;
-  margin-top: 25px ;
+  margin-top: 25px;
   border-radius: 10px;
   border: #eac500 2px solid;
   box-shadow: #eac500 0px 0px 3px;
   display: block;
 }
 
-.submit{
+.submit {
   width: 5%;
   padding: 5px 10px;
   margin-top: 20px;
@@ -135,10 +129,35 @@ header {
 }
 
 .flex {
-  display: flex
+  display: flex;
 }
 
 .logo > img {
   width: 120px;
   height: 120px;
+}
+.validContainer {
+  position: relative;
+  width: 90%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  margin: 20px auto;
+  background-color: #f2dede;
+}
+.validationmsg {
+  color: #da1815;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  text-shadow: none;
+}
+.validContainer i {
+  color: #ecd02c;
+  position: absolute;
+  top: -10px;
+  right: -5px;
+  font-size: 23px;
 }
