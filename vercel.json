@@ -5,6 +5,6 @@
     { "source": "/register", "destination": "/pages/register.html" },
     { "source": "/cart", "destination": "/pages/cart.html" },
     { "source": "/orderStatus", "destination": "/pages/orderStatus.html" },
-    { "source": "/:path*", "destination": "/pages/home.html" }
+  
   ]
 }
