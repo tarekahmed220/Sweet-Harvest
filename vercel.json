@@ -1,10 +1,9 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/pages/home.html" },
-    { "source": "/login", "destination": "/pages/login.html" },
-    { "source": "/register", "destination": "/pages/register.html" },
-    { "source": "/cart", "destination": "/pages/cart.html" },
-    { "source": "/orderStatus", "destination": "/pages/orderStatus.html" },
-  
+  "redirects": [
+    { "source": "/", "destination": "/pages/home.html", "permanent": false },
+    { "source": "/login", "destination": "/pages/login.html", "permanent": false },
+    { "source": "/register", "destination": "/pages/register.html", "permanent": false },
+    { "source": "/cart", "destination": "/pages/cart.html", "permanent": false },
+    { "source": "/orderStatus", "destination": "/pages/orderStatus.html", "permanent": false }
   ]
 }
