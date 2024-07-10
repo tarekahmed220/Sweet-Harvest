@@ -1,3 +1,10 @@
 {
-  "rewrites": [{ "source": "/", "destination": "/pages/home.html" }]
+  "rewrites": [
+    { "source": "/", "destination": "/pages/home.html" },
+    { "source": "/login", "destination": "/pages/login.html" },
+    { "source": "/register", "destination": "/pages/register.html" },
+    { "source": "/cart", "destination": "/pages/cart.html" },
+    { "source": "/orderStatus", "destination": "/pages/orderStatus.html" },
+    { "source": "/:path*", "destination": "/pages/home.html" }
+  ]
 }
