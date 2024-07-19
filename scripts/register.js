@@ -11,13 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   firstName.addEventListener("keydown", function (event) {
     var key = event.key;
-    if (key.match(/[0-9]/) || key == "Tab" || key == "Enter") {
+    if (key.match(/[0-9]/) || key == "Enter") {
       event.preventDefault();
     }
   });
   lastName.addEventListener("keydown", function (event) {
     var key = event.key;
-    if (key.match(/[0-9]/) || key == "Tab" || key == "Enter") {
+    if (key.match(/[0-9]/) || key == "Enter") {
       event.preventDefault();
     }
   });

@@ -304,11 +304,5 @@ function checkout() {
   console.log(checkout);
   localStorage.setItem("checkout", JSON.stringify(checkout));
   window.location.href = "orderStatus.html";
-  localStorage.setItem("orderStatus", "pending");
+  localStorage.setItem("orderStatus", "accepted");
 }
-// cart = {
-//   id: Date.now(),
-//   products: [{ ...productData }],
-//   user: { ...userData },
-//   status: "pending",
-// };

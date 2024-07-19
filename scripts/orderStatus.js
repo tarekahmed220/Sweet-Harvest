@@ -3,7 +3,6 @@ var orderCheck = localStorage.getItem("orderStatus");
 var headerOfOrderStatus = document.getElementById("headerOfOrderStatus");
 
 if (orderCheck == "accepted") {
-  console.log("donee");
   document.body.innerHTML = `  <div class="status-container">
      
       <div class="approve-animation bounce">
